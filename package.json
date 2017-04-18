@@ -1,0 +1,53 @@
+{
+  "name": "renayoung",
+  "version": "1.0.0",
+  "description": "Portfolio site",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "npm-run-all build -p serve watch:*",
+    "autoprefixer": "postcss -u autoprefixer -r css/*.css",
+    "build:css": "npm run scss && npm run autoprefixer",
+    "build:jekyll": "jekyll build",
+    "build:js": "npm run lint && npm run uglify",
+    "build": "npm-run-all -p build:css build:js -s build:jekyll",
+    "lint": "eslint ./src/js || true",
+    "lint-scss": "stylelint ./src/scss/*.scss --syntax scss || true",
+    "scss": "node-sass --output-style compressed ./src/scss/main.scss ./css/main.css",
+    "serve": "browser-sync start --server './_site' --files './css/*.css, ./js/*.js' --no-open",
+    "serve:reload": "browser-sync reload",
+    "uglify": "mkdir -p js && uglifyjs ./src/js/*.js -m -o ./js/app.js",
+    "watch:css": "onchange './src/scss/**/*.scss' -- npm run build:css",
+    "watch:jekyll": "onchange './index.md' './_includes/*.html' './_layouts/*.html' './css/*.css' './js/*.js' -- npm-run-all build:jekyll serve:reload",
+    "watch:js": "onchange './src/js/*.js' -- npm run build:js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/renaf479/renayoung.git"
+  },
+  "author": "Serena Young",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/renaf479/renayoung/issues"
+  },
+  "homepage": "https://github.com/renaf479/renayoung#readme",
+  "browserslist": [
+    "> 1%",
+    "last 2 versions"
+  ],
+  "devDependencies": {
+    "autoprefixer": "6.7.7",
+    "browser-sync": "2.18.8",
+    "eslint": "3.19.0",
+    "eslint-config-standard": "^10.2.1",
+    "eslint-plugin-import": "2.2.0",
+    "eslint-plugin-promise": "^3.5.0",
+    "node-sass": "4.5.2",
+    "npm-run-all": "4.0.2",
+    "onchange": "3.2.1",
+    "postcss-cli": "3.1.1",
+    "source-map": "0.5.6",
+    "stylelint": "^7.10.1",
+    "uglify-js": "2.8.22"
+  }
+}
