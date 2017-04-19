@@ -1,7 +1,7 @@
 {
-  "name": "renayoung",
+  "name": "boilerplate-jekyll-scss-vue",
   "version": "1.0.0",
-  "description": "Portfolio site",
+  "description": "Boilerplate Jekyll, SCSS, and Vue site",
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -33,14 +33,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/renaf479/renayoung.git"
+    "url": "git+https://github.com/renaf479/boilerplate-jekyll-scss-vue.git"
   },
   "author": "Serena Young",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/renaf479/renayoung/issues"
+    "url": "https://github.com/renaf479/boilerplate-jekyll-scss-vue/issues"
   },
-  "homepage": "https://github.com/renaf479/renayoung#readme",
+  "homepage": "https://github.com/renaf479/boilerplate-jekyll-scss-vue#readme",
   "browserslist": [
     "> 1%",
     "last 2 versions"
